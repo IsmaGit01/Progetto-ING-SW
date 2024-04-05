@@ -18,7 +18,8 @@ function Header({toggleSideBar}) {
         hover:bg-blue-600 shadow-sm mr-4 mt-4'>
             Get Started</Button>
             </Link>:
-            <div className='mr-4 my-2'>
+            <div className='mr-4 my-2 flex'>
+              <h2 className='p-2 -mt-1 mr-2'>{user.fullName}</h2>
               <UserButton/>
             </div>}
     </div>

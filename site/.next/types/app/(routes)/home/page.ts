@@ -1,4 +1,4 @@
-// File: C:\Users\ismam\Desktop\VSCODE\Rev App\site\app\(routes)\home\page.js
+// File: C:\Users\ismam\Desktop\GitHub\Progetto-ING-SW\site\app\(routes)\home\page.js
 import * as entry from '../../../../../app/(routes)/home/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
