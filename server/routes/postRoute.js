@@ -1,51 +1,51 @@
-const express=require('express');
+// Importiamo il framework Express
+const express = require('express');
+
+// Importiamo il modello post
 const Post = require('../models/Post');
 
-const router=express.Router();
+// Creiamo un router di Express
+const router = express.Router();
 
-
-//Get All Post
-
-router.get('/',async(req,res)=>{
-    try{
-
+// Definiamo una route per ottenere tutti i post
+router.get('/', async (req, res) => {
+    try {
+        // Troviamo tutti i post nel database
         const posts = await Post.find()
-        .populate('createdBy')
-        .sort({createdAt:-1}) //Ordina in base cronologica i post
-        res.json(posts)
+            .populate('createdBy') // Popoliamo il campo 'createdBy' con i dati dell'utente che ha creato il post
+            .sort({ createdAt: -1 }); // Ordiniamo i post in base alla data di creazione in ordine decrescente
+        // Restituiamo i post come risposta JSON
+        res.json(posts);
+    } catch (error) {
+        // Se si verifica un errore, restituiamo un messaggio di errore con lo stato 500
+        res.status(500).json({ message: error.message });
     }
-    catch(error)
-    {
-        res.status(500).json({message:error.message})
-    }
-})
+});
 
-//Create New Post
+// Definiamo una route per creare un nuovo post
+router.post('/', async (req, res) => {
+    try {
+        // Otteniamo i dati del post dalla richiesta
+        const data = {
+            postText: req.body.postText,
+            postCategory: req.body.postCategory,
+            postTitle: req.body.postTitle,
+            postRating: req.body.postRating,
+            createdAt: req.body.createdAt,
+            createdBy: req.body.createdBy,
+            imageUrl: req.body.imageUrl
+        };
 
-router.post('/',async(req,res)=>{
-    try{
-
-        //Data fetch
-        const data={
-            postText:req.body.postText,
-            postCategory:req.body.postCategory,
-            postTitle:req.body.postTitle,
-            postRating:req.body.postRating,
-            createdAt:req.body.createdAt,
-            createdBy:req.body.createdBy,
-            imageUrl:req.body.imageUrl
-        }
-
-        //Create new data everytime
-        const postRes= await Post.create(data);
+        // Creiamo un nuovo post nel database utilizzando il modello Post
+        const postRes = await Post.create(data);
+        
+        // Restituiamo il post appena creato come risposta con stato 201 (Created)
         res.status(201).json(postRes);
-    }catch(error)
-    {
-        res.status(500).json({message:error.message})
+    } catch (error) {
+        // Se si verifica un errore, restituiamo un messaggio di errore con lo stato 500
+        res.status(500).json({ message: error.message });
     }
-})
+});
 
-
-
-module.exports=router;
-
+// Esportiamo il router contenente le nostre routes
+module.exports = router;

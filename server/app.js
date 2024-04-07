@@ -1,35 +1,48 @@
+// Importiamo il framework Express
 const express = require('express');
-require('dotenv').config()
+
+// Importiamo il modulo per la gestione delle variabili d'ambiente
+require('dotenv').config();
+
+// Importiamo Mongoose per la connessione al database MongoDB
 const { default: mongoose } = require('mongoose');
-var cors = require('cors')
+
+// Importiamo il modulo per abilitare CORS (Cross-Origin Resource Sharing)
+const cors = require('cors');
+
+// Creiamo un'istanza di Express
 const app = express();
-const port = 8000; // Define your desired port
 
+// Definiamo la porta su cui il server ascolterà le richieste
+const port = 8000;
 
-// Middleware to parse JSON requests
-app.use(express.json(),cors());
-const uri = process.env.MONGODB_URL; // Replace with your MongoDB URI and database name
+// Middleware per parsare le richieste JSON e abilitare CORS
+app.use(express.json(), cors());
 
-//connecting MongoDB
-mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
- const db=mongoose.connection;
+// URI per la connessione al database MongoDB preso dalle variabili d'ambiente
+const uri = process.env.MONGODB_URL;
 
-db.once('open',()=>console.log("Connected"))
+// Connessione al database MongoDB
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const db = mongoose.connection;
 
+// Evento 'open' che indica che la connessione al database è avvenuta con successo
+db.once('open', () => console.log("Connected"));
 
-// Test Route
+// Route di test
 app.get('/', (req, res) => {
   res.send('Hellooo from Ismailee!');
 });
 
-//User Route
+// Route degli utenti
 const userRoute = require('./routes/userRoute');
-app.use('/user', userRoute,cors());
+app.use('/user', userRoute);
 
-//Post Route
+// Route dei post
 const postRoute = require('./routes/postRoute');
-app.use('/post', postRoute,cors());
+app.use('/post', postRoute);
 
+// Avvio del server e ascolto delle richieste sulla porta specificata
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
