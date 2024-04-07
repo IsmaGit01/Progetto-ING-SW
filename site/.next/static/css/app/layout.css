@@ -576,6 +576,9 @@ video {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
+.-mt-1 {
+  margin-top: -0.25rem;
+}
 .-mt-4 {
   margin-top: -1rem;
 }
@@ -617,9 +620,6 @@ video {
 }
 .mt-5 {
   margin-top: 1.25rem;
-}
-.-mt-1 {
-  margin-top: -0.25rem;
 }
 .block {
   display: block;
