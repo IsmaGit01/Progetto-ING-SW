@@ -32,9 +32,9 @@ function SideNav({toggleSideBar}) {
         <div className='absolute bottom-10  flex gap-3 items-center'>
            {!user? <Link href='/sign-up'>
                <Button variant="ghost" className='flex gap-2 items-center cursor-pointer'><LogIn/>
-          Sign In</Button></Link>  
+          Accedi</Button></Link>  
           : <div className='flex items-center gap-3  p-3 '>
-          <UserButton/> Profile
+          <UserButton/> Profilo
           </div>}
         
         </div>

@@ -45,7 +45,7 @@ function layout({ children }) {
             {children}
           </div>
           {/* Right Most Section of page */}
-          <div className='p-5'>Side Section</div>
+          <div className='p-5'>Sezione Laterale</div>
         </div>
 
       </div>

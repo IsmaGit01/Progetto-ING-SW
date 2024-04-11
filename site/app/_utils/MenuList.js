@@ -9,26 +9,26 @@ export default[
     },
     {
         id:2,
-        name:'Movies',
-        path:'/movies',
+        name:'Film',
+        path:'/film',
         icon:Rocket
     },
     {
         id:3,
-        name:'TV Series',
-        path:'/tvseries',
+        name:'Serie TV',
+        path:'/serietv',
         icon:Tv
     },
     {
         id:4,
-        name:'Games',
-        path:'/games',
+        name:'Videogiochi',
+        path:'/videogiochi',
         icon:Gamepad2
     },
     {
         id:5,
-        name:'Music',
-        path:'/music',
+        name:'Musica',
+        path:'/musica',
         icon:MusicIcon
     },
 

@@ -41,8 +41,8 @@ function WritePost({getAllPost}) {
         getAllPost()
         //Toast Message di successo nel postare
         toast({
-          title: "Awesome!",
-          description: "Your Review was Published Successfully.",
+          title: "Fantastico!",
+          description: "La tua recensione è stata pubblicata con successo.",
           variant: "success" //Color green
         })
       }
@@ -51,7 +51,7 @@ function WritePost({getAllPost}) {
       //Toast Message di fallimento nel postare
       toast({
         title: "Oops!",
-        description: "There was some Server Side Error.",
+        description: "C'è stato un errore lato server.",
         variant: "destructive" //Color red
       })
     })
@@ -86,15 +86,15 @@ function WritePost({getAllPost}) {
 
   return (
     <div>
-      <h2 className='p-1 text-[25px] font-medium text-gray-800 max-w-custom mx-auto'>Hello {user.username}!</h2>  
-      <h2 className='p-1 text-gray-400 max-w-custom mx-auto'>Share your thoughts about your favourite entertainment with the community</h2> 
+      <h2 className='p-1 text-[25px] font-medium text-gray-800 max-w-custom mx-auto'>Ciao {user.username}!</h2>  
+      <h2 className='p-1 text-gray-400 max-w-custom mx-auto'>Condividi i tuoi pensieri sul tuo intrattenimento preferito con la nostra Community</h2> 
       <div className='p-6 border rounded-lg mt-5 bg-blue-500 max-w-custom mx-auto'>
-        <h2 className='text-[20px] text-white'>Create Review</h2>
+        <h2 className='text-[20px] text-white'>Crea Recensione</h2>
         <div>
           <div className='mx-auto mt-5 p-2'>
             <form onSubmit={handleSubmit} className="flex flex-wrap">
               <div className="flex flex-col w-full lg:w-1/4 lg:pr-4 mb-4 lg:mb-0">
-                <label htmlFor="category" className="block text-white">Category</label>
+                <label htmlFor="category" className="block text-white">Categoria</label>
                 <select
                 id="category"
                 value={category}
@@ -102,14 +102,14 @@ function WritePost({getAllPost}) {
                 className="mt-1 p-2.5 border border-gray-300 rounded-md w-full bg-white"
                 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: '700' }}
                 required >
-                <option value="movies">Movies</option>
-                <option value="tv_series">TV Series</option>
-                <option value="games">Games</option>
-                <option value="music">Music</option>
+                <option value="movies">Film</option>
+                <option value="tv_series">Serie TV</option>
+                <option value="games">Videogiochi</option>
+                <option value="music">Musica</option>
                 </select>
               </div>
               <div className="w-1/2 flex flex-col lg:w-1/2 lg:px-2 mb-4 lg:mb-0">
-                <label htmlFor="title" className="block text-white">Title</label>
+                <label htmlFor="title" className="block text-white">Titolo</label>
                 <input
                 type="text"
                 id="title"
@@ -119,7 +119,7 @@ function WritePost({getAllPost}) {
                 required/>
               </div>
               <div className="flex flex-col w-full lg:w-1/4 lg:pl-4 mb-4 lg:mb-0">
-                <label htmlFor="rating" className="block text-white">Rating (1-10)</label>
+                <label htmlFor="rating" className="block text-white">Voto (1-10)</label>
                 <input
                 type="number"
                 id="rating"
@@ -135,7 +135,7 @@ function WritePost({getAllPost}) {
         </div>
           <div className='p-4 bg-white rounded-lg mt-2 border border-gray-200'>
           <label htmlFor="review" className="block text-gray-700"></label>
-            <textarea placeholder = "Add review.."
+            <textarea placeholder = "Aggiungi Recensione.."
             id="review"
             value={review}
             onChange={handleReviewChange}
@@ -155,7 +155,7 @@ function WritePost({getAllPost}) {
             //Publish disabilitato se l'utente non mette nulla dentro il create review
             disabled={!review?.length || !title?.length}
             onClick={()=>onCreatePost()}
-            >Publish</Button>
+            >Pubblica</Button>
           </div>
       </div>
     </div>

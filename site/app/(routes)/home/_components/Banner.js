@@ -11,10 +11,10 @@ function Banner() {
      border gap-5'>
         <Image src='/test.png' width={150} height={150} alt='entertainment'/>
         <div>
-        <h2 className='font-bold text-[27px] '>WELCOME!</h2>
-        <h2 className=''>Join our Community and Unleash your Critical Spirit </h2>
+        <h2 className='font-bold text-[27px] '>Benvenuto!</h2>
+        <h2 className='p-1'>Unisciti alla nostra Community e libera il tuo spirito creativo </h2>
         <Link href="/sign-up">
-        <Button className="mt-3 bg-blue-500 hover:bg-blue-600 shadow-sm">Get Started</Button>
+        <Button className="mt-3 bg-blue-500 hover:bg-blue-600 shadow-sm">Registrati</Button>
         </Link>
         </div>
         
