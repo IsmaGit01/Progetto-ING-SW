@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
         // Troviamo tutti i post nel database
         const posts = await Post.find()
             .populate('createdBy') // Popoliamo il campo 'createdBy' con i dati dell'utente che ha creato il post
+            .populate('likes') // Popoliamo il campo 'likes' con i dati dei like del post
             .sort({ createdAt: -1 }); // Ordiniamo i post in base alla data di creazione in ordine decrescente
         // Restituiamo i post come risposta JSON
         res.json(posts);
@@ -46,6 +47,52 @@ router.post('/', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+// Definiamo una route per Like/Dislike dei Post/Reviews
+
+router.put("/like/:postId",async(req,res)=>{
+    try {
+        // Estrai postId dai parametri della richiesta
+        const postId = req.params.postId;
+
+        // Crea un oggetto dati con userId e isLike dal corpo della richiesta
+        const data = {
+            userId:req.body.userId,
+            isLike:req.body.isLike
+        }
+
+        // Trova il post tramite il suo postId
+        const post = await Post.findById(postId);
+
+        // Se il post non ha ancora Mi Piace, inizializza l'array dei Mi Piace
+        if (!post.likes)
+        {
+            const updatePost=await Post.findByIdAndUpdate(postId,
+                {likes:[]}, // Inizializza l'array dei Mi Piace
+                {upsert:true, // Crea un nuovo post se non trovato
+                runValidators:true}, // Esegui i validatori per la validazione dello schema
+            );
+
+            // Salva il post aggiornato
+            await updatePost.save();
+        }
+
+        // Recupera il post aggiornato dopo l'inizializzazione
+        const updatedPost = await Post.findById(postId);
+
+        // Aggiungi o rimuovi l'userId dall'array dei Mi Piace in base al valore di isLike
+        data.isLike ? updatedPost.likes.push(data.userId) : updatedPost.likes.pop(data.userId);
+        
+        // Salva il post aggiornato nel database
+        const result = await updatedPost.save()
+
+        // Restituisci una risposta JSON con lo stato 201 e il risultato della salvataggio
+        res.status(201).json(result);
+    } catch(error)
+    {
+        res.status(500).json({message:error.message})
+    }
+})
 
 // Esportiamo il router contenente le nostre routes
 module.exports = router;

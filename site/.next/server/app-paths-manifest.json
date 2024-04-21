@@ -1,4 +1,3 @@
 {
-  "/(auth)/sign-up/[[...sign-up]]/page": "app/(auth)/sign-up/[[...sign-up]]/page.js",
   "/(routes)/home/page": "app/(routes)/home/page.js"
 }

@@ -1,11 +1,33 @@
 //PostItem.js
-import React from 'react'
+import React, { useContext } from 'react'
 import Image from 'next/image'
 import moment from 'moment'
+import { UserDetailContext } from '@/app/_context/UserDetailContext';
+import GlobalApi from '@/app/_utils/GlobalApi';
+import { Ellipsis } from 'lucide-react';
 
 //Interfaccia Recensioni
 
-function PostItem({post}) {
+function PostItem({post, updatePostList}) {
+
+  const {userDetail,setUserDetail}=useContext(UserDetailContext);
+
+  const checkIsUserLike = (postLikes) => {
+    return postLikes.find(item => item?._id == userDetail?._id)
+  }
+
+  const onLikeClick = (isLike, postId) => {
+    const data = {
+      userId: userDetail?._id,
+      isLike: isLike
+    }
+    GlobalApi.onPostLike(postId, data).then(resp => {
+      console.log(resp);
+      updatePostList()
+    })
+  }
+
+
   return (
     <div className='p-5 border rounded-lg my-5 max-w-custom mx-auto'>
       <div className='flex gap-3 items-center p-3'>
@@ -31,20 +53,34 @@ function PostItem({post}) {
       <div className='p-4 rounded-lg mt-1'>
         <h2>{post.postText}</h2>
       </div> 
-      <div className='flex gap-8 my-2 ml-2'>
+      {/*Likes and Comments*/}
+      <div className='flex gap-8 my-6 ml-3 mb-8'> 
         <div className='flex gap-3 items-center text-gray-700 text-[15px]'>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+        {!checkIsUserLike(post?.likes) ?
+          <svg xmlns="http://www.w3.org/2000/svg"
+              onClick={() => onLikeClick(true, post._id)}
+              fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
+              className="w-6 h-6 hover:cursor-pointer">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+          </svg> :
+          <svg xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="currentColor"
+              onClick={() => onLikeClick(false, post._id)}
+              className="w-6 h-6 text-pink-600 hover:cursor-pointer">
+              <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
           </svg>
-          <h2>123 Mi piace</h2>
+        }
+          <h2>{post?.likes?.length} Likes</h2>
         </div>
         <div className='flex gap-3 items-center text-gray-700 text-[15px]'>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
+          className="w-6 h-6 ml-10">
             <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.068.157 2.148.279 3.238.364.466.037.893.281 1.153.671L12 21l2.652-3.978c.26-.39.687-.634 1.153-.67 1.09-.086 2.17-.208 3.238-.365 1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
           </svg>
-          <h2>45 Commenti</h2>
+          <h2>45 Comments</h2>
         </div>
-        <div className='flex ml-auto mr-8'>
+      </div>
+      <div className='flex justify-end items-center mr-7 -mt-14'>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ellipsis"
             className="hover:cursor-pointer text-gray-700">
             <circle cx="12" cy="12" r="1"/>
@@ -52,7 +88,6 @@ function PostItem({post}) {
             <circle cx="5" cy="12" r="1"/>
           </svg>
         </div>
-      </div>
     </div>
   )
 }

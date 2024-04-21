@@ -13,10 +13,13 @@ const createPost=(data)=>axiosClient.post('/post',data);
 
 const getAllPost=()=>axiosClient.get('/post');
 
+const onPostLike=(postId,data)=>axiosClient.put("/post/like/"+postId,data);
+
 export default{
     createUser,
     getUserByEmail,
     createPost,
-    getAllPost
+    getAllPost,
+    onPostLike
 }
 
