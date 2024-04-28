@@ -5,6 +5,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { UserDetailContext } from './_context/UserDetailContext'
 import { useState } from 'react'
 import { Toaster } from '@/components/ui/toaster'
+import { itIT } from '@clerk/localizations'
 
 
 
@@ -25,7 +26,7 @@ export default function RootLayout({ children }) {
   const [userDetail,setUserDetail]=useState();
   return (
 
-    <ClerkProvider>
+    <ClerkProvider localization={itIT}>
 
       <UserDetailContext.Provider value={{userDetail,setUserDetail}}>
         <html lang="en">
