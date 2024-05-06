@@ -1,6 +1,6 @@
 {
     "rewrites": [
-        {"source": "/api/(.*)", "destination": "/server/app.js"},
+        {"source": "/server/(.*)", "destination": "/server/app.js"},
         {"source": "/(.*)", "destination": "/site/app/(routes)/home/page.js"}
     ]
 }
