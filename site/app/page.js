@@ -35,8 +35,8 @@ export default function Home() {
 
     <UserButton/>
 
-    <button onClick={()=>{window.location.href='./home'}}>
-    Home
+    <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mx-auto block hover:bg-blue-600 transition duration-300" onClick={()=>{window.location.href='./home'}}>
+    UniBoRate
     </button>
 
   </div>
