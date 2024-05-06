@@ -1,5 +1,6 @@
 {
     "rewrites": [
-        {"source": "/(.*)", "destination": "/site/app"}
+        {"source": "/api/(.*)", "destination": "/server/app.js"},
+        {"source": "/(.*)", "destination": "/site/app/(routes)/layout.js"}
     ]
 }
