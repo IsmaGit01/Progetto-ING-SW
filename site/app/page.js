@@ -35,6 +35,10 @@ export default function Home() {
 
     <UserButton/>
 
+    <button onClick={()=>{window.location.href='./home'}}>
+    Home
+    </button>
+
   </div>
   )
 }
