@@ -24,6 +24,9 @@ app.use(express.json())
 
 mongoose.connect('mongodb+srv://ismamaataoui:Viiv9FxlqbWA4U2o@revapp.lrnnvdh.mongodb.net/test?retryWrites=true&w=majority&appName=RevApp')
 
+app.get("/", (req, res) => {
+  res.json("Hello from Isma!");
+})
 // Definiamo la porta su cui il server ascolterà le richieste
 const port = 8000;
 
