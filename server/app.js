@@ -13,6 +13,17 @@ const cors = require('cors');
 // Creiamo un'istanza di Express
 const app = express();
 
+app.use(cors(
+  {
+    origin: ["https://progetto-ing-sw-api.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
+  }
+));
+app.use(express.json())
+
+mongoose.connect('mongodb+srv://ismamaataoui:Viiv9FxlqbWA4U2o@revapp.lrnnvdh.mongodb.net/test?retryWrites=true&w=majority&appName=RevApp')
+
 // Definiamo la porta su cui il server ascolterà le richieste
 const port = 8000;
 
@@ -46,3 +57,4 @@ app.use('/post', postRoute);
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
+
