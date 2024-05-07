@@ -15,7 +15,7 @@ function Header({toggleSideBar}) {
          />
          {!user ? <Link href="/sign-up">
         <Button className='bg-blue-500 
-        hover:bg-blue-600 shadow-sm mr-4 mt-4'>
+        hover:bg-blue-600 shadow-sm mr-4 mt-4 mb-4'>
             Registrati</Button>
             </Link>:
             <div className='mr-4 my-2 flex'>

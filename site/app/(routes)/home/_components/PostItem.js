@@ -43,8 +43,8 @@ function PostItem({post, updatePostList}) {
           <h2 className='text-[12px] text-gray-500'>{moment(Number(post.createdAt)).format('DD MMM | hh:mm A')}</h2>
         </div>
         <div className='items-center mr-auto ml-auto my-1'>
-          <h2 className='text-[14px]'>"{post.postTitle}"</h2> 
-          <h2 className='text-blue-500 text-[12px] hover:cursor-pointer ml-2'>{post.postCategory}</h2>
+          <h2 className='text-[14px]'>{post.postTitle}</h2> 
+          <h2 className='text-blue-500 text-[12px] hover:cursor-pointer ml-0'>{post.postCategory}</h2>
         </div>
         <div>
           <h2 className='text-[14px] mr-2 -mt-4'>Voto: {post.postRating}/10</h2>
