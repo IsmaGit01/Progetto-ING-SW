@@ -1,4 +1,4 @@
-import { Gamepad2, Home, MusicIcon, Rocket, Tv } from "lucide-react";
+import { Book, BookAIcon, BookCheck, Gamepad2, Home, MusicIcon, Rocket, Tv } from "lucide-react";
 
 export default[
     {
@@ -30,6 +30,12 @@ export default[
         name:'Musica',
         path:'/musica',
         icon:MusicIcon
+    },
+    {
+        id:5,
+        name:'Libri',
+        path:'/libri',
+        icon:Book
     },
 
 ]

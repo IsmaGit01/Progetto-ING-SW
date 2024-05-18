@@ -13,7 +13,7 @@ const postSchema = new mongoose.Schema({
     postCategory: {
         type: String,
         required: true,
-        enum: ['movies', 'tv_series', 'games', 'music']
+        enum: ['movies', 'tv_series', 'games', 'music', 'books']
     },
     // Campo 'postTitle' per il titolo del post, di tipo stringa e richiesto
     postTitle: {

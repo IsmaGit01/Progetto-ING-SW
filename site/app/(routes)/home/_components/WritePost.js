@@ -106,6 +106,7 @@ function WritePost({getAllPost}) {
                 <option value="tv_series">Serie TV</option>
                 <option value="games">Videogiochi</option>
                 <option value="music">Musica</option>
+                <option value="books">Libri</option>
                 </select>
               </div>
               <div className="w-1/2 flex flex-col lg:w-1/2 lg:px-2 mb-4 lg:mb-0">
