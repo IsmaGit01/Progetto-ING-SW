@@ -150,7 +150,7 @@ function PostItem({ post, updatePostList }) {
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle className="flex justify-between items-center">
-                Commenti <AlertDialogCancel className="bg-red-500 text-white border-gray-200 border-2 rounded-xl hover:bg-white hover:text-red-500 hover:border-red-500">X</AlertDialogCancel>
+                Commenti <AlertDialogCancel className="bg-red-500 text-white border-white border-2 rounded-xl hover:bg-white hover:text-red-500 hover:border-red-500">X</AlertDialogCancel>
               </AlertDialogTitle>
               <AlertDialogDescription>
                 <CommentList commentList = {post?.comments}/>
