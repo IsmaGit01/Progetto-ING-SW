@@ -34,13 +34,17 @@ app.get('/', (req, res) => {
   res.send('Hellooo from Ismailee!');
 });
 
-// Route degli utenti
-const userRoute = require('./routes/userRoute');
-app.use('/user', userRoute);
+//User Route
+const userRoute=require('./routes/userRoute');
+app.use('/user',userRoute,cors());
 
-// Route dei post
-const postRoute = require('./routes/postRoute');
-app.use('/post', postRoute);
+//Post Route
+const postRoute=require('./routes/postRoute');
+app.use('/post',postRoute,cors());
+
+//Comment Route
+const commentRoute=require('./routes/commentRoute');
+app.use('/comment',commentRoute,cors());
 
 // Avvio del server e ascolto delle richieste sulla porta specificata
 app.listen(port, () => {

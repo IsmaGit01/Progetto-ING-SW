@@ -40,7 +40,9 @@ const postSchema = new mongoose.Schema({
     // Campo 'imageUrl' per l'URL dell'immagine del post, di tipo stringa
     imageUrl: String,
     // Campo 'likes' come array per il numero di like delle recensioni
-    likes:[{type:mongoose.Schema.Types.ObjectId,ref:'user'}]
+    likes:[{type:mongoose.Schema.Types.ObjectId,ref:'user'}],
+    // Campo 'comments' come array per il numero di commenti delle recensioni
+    comments:[{type:mongoose.Schema.Types.ObjectId,ref:'comment'}]
 });
 
 // Esportiamo il modello post definito sopra, utilizzando il nome "post" come identificatore del modello

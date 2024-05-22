@@ -136,7 +136,7 @@ function WritePost({getAllPost}) {
         </div>
           <div className='p-4 bg-white rounded-lg mt-2 border border-gray-200'>
           <label htmlFor="review" className="block text-gray-700"></label>
-            <textarea placeholder = "Aggiungi Recensione.."
+            <textarea placeholder = "Aggiungi Recensione..."
             id="review"
             value={review}
             onChange={handleReviewChange}

@@ -14,6 +14,13 @@ router.get('/', async (req, res) => {
         const posts = await Post.find()
             .populate('createdBy') // Popoliamo il campo 'createdBy' con i dati dell'utente che ha creato il post
             .populate('likes') // Popoliamo il campo 'likes' con i dati dei like del post
+            .populate({ // Popoliamo il campo 'comment' con i dati dei commenti del post
+                path:'comments',
+                populate:{
+                    path:'createdBy',
+                    model:'user'
+                }
+            }) 
             .sort({ createdAt: -1 }); // Ordiniamo i post in base alla data di creazione in ordine decrescente
         // Restituiamo i post come risposta JSON
         res.json(posts);
