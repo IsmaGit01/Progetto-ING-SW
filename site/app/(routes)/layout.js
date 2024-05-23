@@ -1,7 +1,7 @@
 "use client"
 import React, { useContext, useEffect, useState } from 'react'
-import SideNav from './_components/SideNav'
-import Header from './_components/Header'
+import SideNav from './_generalcomponents/SideNav'
+import Header from './_generalcomponents/Header'
 import GlobalApi from '../_utils/GlobalApi'
 import { useUser } from '@clerk/nextjs'
 import { UserDetailContext } from '../_context/UserDetailContext'

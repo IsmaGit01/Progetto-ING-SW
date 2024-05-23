@@ -1,9 +1,9 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import Banner from './_components/Banner'
+import Banner from '../_components/Banner'
 import { useUser } from '@clerk/nextjs'
-import WritePost from './_components/WritePost';
-import PostList from './_components/PostList';
+import WritePost from '../_components/WritePost';
+import PostList from '../_components/PostList';
 import GlobalApi from '@/app/_utils/GlobalApi';
 
 function Home() {

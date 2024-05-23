@@ -1,3 +1,4 @@
 {
-  "/(routes)/home/page": "app/(routes)/home/page.js"
+  "/(routes)/home/page": "app/(routes)/home/page.js",
+  "/(routes)/film/page": "app/(routes)/film/page.js"
 }
