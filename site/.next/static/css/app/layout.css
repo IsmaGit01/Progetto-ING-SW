@@ -939,6 +939,10 @@ video {
 .border-input {
   border-color: hsl(var(--input));
 }
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
 .bg-background {
   background-color: hsl(var(--background));
 }
