@@ -581,9 +581,6 @@ video {
 .m-5 {
   margin: 1.25rem;
 }
-.m-2 {
-  margin: 0.5rem;
-}
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -610,6 +607,9 @@ video {
 .-mt-4 {
   margin-top: -1rem;
 }
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -621,6 +621,9 @@ video {
 }
 .ml-0 {
   margin-left: 0px;
+}
+.ml-2 {
+  margin-left: 0.5rem;
 }
 .ml-3 {
   margin-left: 0.75rem;
@@ -660,24 +663,6 @@ video {
 }
 .mt-5 {
   margin-top: 1.25rem;
-}
-.-mt-2 {
-  margin-top: -0.5rem;
-}
-.mb-1 {
-  margin-bottom: 0.25rem;
-}
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-.ml-2 {
-  margin-left: 0.5rem;
-}
-.mt-20 {
-  margin-top: 5rem;
-}
-.ml-5 {
-  margin-left: 1.25rem;
 }
 .block {
   display: block;
@@ -1193,52 +1178,12 @@ video {
   max-width: 800px; 
 }
 
-.placeholder\:text-\[10px\]::-moz-placeholder {
-  font-size: 10px;
-}
-
-.placeholder\:text-\[10px\]::placeholder {
-  font-size: 10px;
-}
-
-.placeholder\:text-\[12px\]::-moz-placeholder {
-  font-size: 12px;
-}
-
-.placeholder\:text-\[12px\]::placeholder {
-  font-size: 12px;
-}
-
-.placeholder\:text-\[13px\]::-moz-placeholder {
-  font-size: 13px;
-}
-
-.placeholder\:text-\[13px\]::placeholder {
-  font-size: 13px;
-}
-
 .placeholder\:text-\[14px\]::-moz-placeholder {
   font-size: 14px;
 }
 
 .placeholder\:text-\[14px\]::placeholder {
   font-size: 14px;
-}
-
-.placeholder\:text-\[\]::-moz-placeholder {
-  color: ;
-}
-
-.placeholder\:text-\[\]::placeholder {
-  color: ;
-}
-
-.placeholder\:text-\[10\]::-moz-placeholder {
-  color: 10;
-}
-
-.placeholder\:text-\[10\]::placeholder {
-  color: 10;
 }
 
 .hover\:cursor-pointer:hover {

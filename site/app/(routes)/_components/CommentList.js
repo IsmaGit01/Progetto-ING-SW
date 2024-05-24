@@ -1,3 +1,4 @@
+//CommentList.js
 import React from 'react';
 import Image from 'next/image';
 import moment from "moment";
@@ -33,3 +34,5 @@ function CommentList({ commentList }) {
 }
 
 export default CommentList;
+
+//
