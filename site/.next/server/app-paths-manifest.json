@@ -1,4 +1,7 @@
 {
-  "/(routes)/home/page": "app/(routes)/home/page.js",
-  "/(routes)/film/page": "app/(routes)/film/page.js"
+  "/(routes)/serietv/page": "app/(routes)/serietv/page.js",
+  "/(routes)/videogiochi/page": "app/(routes)/videogiochi/page.js",
+  "/(routes)/musica/page": "app/(routes)/musica/page.js",
+  "/(routes)/libri/page": "app/(routes)/libri/page.js",
+  "/(routes)/home/page": "app/(routes)/home/page.js"
 }

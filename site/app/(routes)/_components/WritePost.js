@@ -117,7 +117,7 @@ function WritePost({getAllPost}) {
                 id="title"
                 value={title}
                 onChange={handleTitleChange}
-                className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                className="mt-1 p-2 border border-gray-300 rounded-md w-full placeholder:text-[14px]"
                 required/>
               </div>
               <div className="flex flex-col w-full lg:w-1/4 lg:pl-4 mb-4 lg:mb-0">

@@ -15,7 +15,7 @@ function MoviePostList({ postList, updatePostList }) {
         ))
       ) : (
         // Placeholder for no movie reviews
-        <p>No movie reviews available.</p>
+        <p className='mt-10 ml-2'>Non ci sono recensioni di Film ☹️</p>
       )}
     </div>
   );

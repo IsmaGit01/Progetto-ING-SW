@@ -1,4 +1,4 @@
-import { Book, BookAIcon, BookCheck, Gamepad2, Home, MusicIcon, Rocket, Tv } from "lucide-react";
+import { Book, Gamepad2, Home, MusicIcon, Rocket, Tv } from "lucide-react";
 
 export default[
     {

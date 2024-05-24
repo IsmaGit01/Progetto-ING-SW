@@ -22,6 +22,7 @@ function CommentList({ commentList }) {
             className='rounded'
           />
           <div className='flex flex-col w-full'>
+            <h2 className='-mt-1 mb-2 text-gray-600'>{item.createdBy.name}</h2>
             <h2 className='border-gray-200 border-2 rounded-lg p-3 -mt-1 flex justify-between items-center text-gray-600'>{item.commentText}</h2>
             <h2 className='text-[11px] text-gray-600 text-right mr-4 mt-1'>{moment(Number(item.createdAt)).format("DD MMM | hh:mm A")}</h2>
           </div>
