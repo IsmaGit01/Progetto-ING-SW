@@ -16,7 +16,9 @@ const getAllPost=()=>axiosClient.get('/post');
 
 const onPostLike=(postId,data)=>axiosClient.put("/post/like/"+postId,data);
 
-const addComment = (data) => axiosClient.post('/comment',data)
+const addComment = (data) => axiosClient.post('/comment',data);
+
+const deleteComment = (commentId) => axiosClient.delete("/comment/"+commentId)
 
 export default{
     createUser,
@@ -24,6 +26,7 @@ export default{
     createPost,
     getAllPost,
     onPostLike,
-    addComment
+    addComment,
+    deleteComment
 }
 

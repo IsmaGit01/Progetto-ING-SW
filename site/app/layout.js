@@ -1,5 +1,5 @@
 "use client"
-import { Montserrat } from 'next/font/google'
+import {Montserrat} from 'next/font/google' //Font da Google
 import './globals.css'
 import { ClerkProvider } from '@clerk/nextjs'
 import { UserDetailContext } from './_context/UserDetailContext'
@@ -35,3 +35,4 @@ export default function RootLayout({ children }) {
 
   )
 }
+

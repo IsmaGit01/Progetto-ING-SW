@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import CommentList from "./CommentList";
 
-//Interfaccia Recensioni
+//Interfaccia Recensioni 
 
 function PostItem({ post, updatePostList }) {
   const { userDetail, setUserDetail } = useContext(UserDetailContext);
