@@ -19,6 +19,13 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import CommentList from "./CommentList";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import { Flag, MoreHorizontal, Trash } from "lucide-react";
+
 
 //Interfaccia Recensioni 
 
@@ -65,6 +72,26 @@ function PostItem({ post, updatePostList }) {
     });
     setUserInputComment("");
   };
+
+  const onDeleteReview = (post) => {
+    GlobalApi.deletePost(post._id).then((resp) => {
+        if (resp) {
+            toast({
+                title: 'Eliminata!',
+                description: 'Recensione eliminata con successo.',
+                variant: "success",
+            });
+            updatePostList();
+        } else {
+            toast({
+                title: 'Errore!',
+                description: 'Impossibile eliminare la recensione.',
+                variant: "destructive",
+            });
+        }
+    });
+};
+
 
   return (
     <div className="p-5 border-gray-200 border-2 rounded-lg my-5 max-w-custom mx-auto">
@@ -159,23 +186,19 @@ function PostItem({ post, updatePostList }) {
           </AlertDialogContent>
         </AlertDialog>
         <div className="flex items-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-ellipsis"
-          className="hover:cursor-pointer text-gray-700 mr-6"
-        >
-          <circle cx="12" cy="12" r="1" />
-          <circle cx="19" cy="12" r="1" />
-          <circle cx="5" cy="12" r="1" />
-        </svg>
+        <Popover>
+          <PopoverTrigger>
+            <MoreHorizontal className='h-6 w-6 cursor-pointer flex mr-6' />
+          </PopoverTrigger>
+          <PopoverContent className ="w-full h-full">
+            <Button className="flex gap-2 mb-2 border-gray-200 border-2 rounded-lg text-gray-600" variant="outline" onClick={() => onDeleteReview(post)}>
+              <div className='flex gap-2 text-[12px]'><Trash className='h-4 w-4' /> Elimina</div>
+            </Button>
+            <Button className="flex gap-2 border-gray-200 border-2 rounded-lg text-gray-600" variant="outline">
+              <div className='flex gap-2 text-[12px]'><Flag className='h-4 w-4' /> Segnala</div>
+            </Button>
+          </PopoverContent>
+        </Popover>
       </div>
       </div>
       

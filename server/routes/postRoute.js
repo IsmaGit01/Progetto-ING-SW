@@ -101,5 +101,19 @@ router.put("/like/:postId",async(req,res)=>{
     }
 })
 
+// Definiamo una route per eliminare un post
+router.delete("/:postId", async(req, res)=> {
+    try {
+        const postId = req.params.postId;
+        const postDeleteResp = await Post.findByIdAndDelete(postId);
+        if (!postDeleteResp) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+        res.status(200).json(postDeleteResp);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
+
 // Esportiamo il router contenente le nostre routes
 module.exports = router;

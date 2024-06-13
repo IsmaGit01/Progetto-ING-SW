@@ -26,6 +26,7 @@ function CommentList({ commentList }) {
         toast({
           title: 'Eliminato!',
           description: 'Commento eliminato con successo.',
+          variant: "success" //Color green
         });
       }
     });
@@ -51,12 +52,12 @@ function CommentList({ commentList }) {
                   <PopoverTrigger>
                     <MoreVertical className='h-4 w-4 cursor-pointer' />
                   </PopoverTrigger>
-                  <PopoverContent className ="w-full">
-                    <Button className="flex gap-2 mb-2" variant="outline" onClick={() => onDeleteComment(item)}>
-                      <div className='flex gap-2'><Trash className='h-5 w-5' /> Elimina</div>
+                  <PopoverContent className ="w-full h-full">
+                    <Button className="flex gap-2 mb-2 border-gray-200 border-2 rounded-lg text-gray-600" variant="outline" onClick={() => onDeleteComment(item)}>
+                      <div className='flex gap-2 text-[12px]'><Trash className='h-4 w-4' /> Elimina</div>
                     </Button>
-                    <Button className="flex gap-2 " variant="outline">
-                      <div className='flex gap-2'><Flag className='h-5 w-5' /> Segnala</div>
+                    <Button className="flex gap-2 border-gray-200 border-2 rounded-lg text-gray-600" variant="outline">
+                      <div className='flex gap-2 text-[12px]'><Flag className='h-4 w-4' /> Segnala</div>
                     </Button>
                   </PopoverContent>
                 </Popover>
