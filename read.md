@@ -9,3 +9,5 @@ Per runnare il sito:
 Apri il terminale integrato della cartella server ed esegui il comando npm start
 
 Apri il terminale integrato della cartella site ed esegui il comando npm run dev
+
+Le password per tutti gli utenti e' 'test1234'

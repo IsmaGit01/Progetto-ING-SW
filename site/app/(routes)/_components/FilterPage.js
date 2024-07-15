@@ -10,6 +10,7 @@ function FilterPage() {
         <Button className="mr-2 mt-2">+ Commenti 💭</Button>
         <Button className="mr-2 mt-2">+ Recenti ⌚</Button>
         <Button className="mb-2 mt-2">+ Datate 👴</Button>
+        <Button className="mb-2 mt-2 ml-2">Contenuti Migliori 🤩</Button>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import GlobalApi from '../_utils/GlobalApi'
 import { useUser } from '@clerk/nextjs'
 import { UserDetailContext } from '../_context/UserDetailContext'
 import FilterPage from './_components/FilterPage'
+import SearchPage from './_components/SearchPage'
 
 function layout({ children }) {
   const [toggleSideBar, setToggleSideBar] = useState(true)
@@ -46,7 +47,12 @@ function layout({ children }) {
             {children}
           </div>
           {/* Right Most Section of page */}
-          <div className='p-5'><FilterPage/></div>
+          <div className='p-5'>
+            <FilterPage/>
+            <div className='mt-5 -mb-7'>Fai una Ricerca</div>
+            <SearchPage/>
+          </div>
+          
         </div>
 
       </div>
